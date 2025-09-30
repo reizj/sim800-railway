@@ -9,6 +9,11 @@ app.use(express.json());
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
+// Test GET route
+app.get("/", (req, res) => {
+  res.send("SIM800L proxy server is running!");
+});
+
 app.post("/data", async (req, res) => {
   try {
     console.log("Received from SIM800L:", req.body);
